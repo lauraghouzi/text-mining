@@ -2,7 +2,6 @@ import random
 import string
 import sys
 from unicodedata import category
-import difflib
 from thefuzz import fuzz
 from thefuzz import process
 
@@ -76,7 +75,6 @@ def file_process_dickens(filename, skip_header):
 
     return hist_dickens
 
-
 def skip_book_header(fp):
     """
     Reads fp (open file object) until finds the line to stop
@@ -97,18 +95,19 @@ def total_words_dickens(hist_dickens):
     """
     return sum(hist_dickens.values())
 
-def different_words(hist_fitzgerald, hist_dickens, hist_2books):
-    return len(hist_2books)
+def different_words(hist_fitzgerald, hist_dickens):
+    print(f"This is the simple ration {fuzz.ratio(hist_fitzgerald, hist_dickens)}")   
+    print(f"This is the simple ration {fuzz.partial_ratio(hist_fitzgerald, hist_dickens)}")
+    print(f"This is the simple ration {fuzz.token_sort_ratio(hist_fitzgerald, hist_dickens)}")
 
+    
 
 def main():
     hist_fitzgerald = file_process_fitzgerald('Books/The Great Gatsby.txt', skip_header = True)
     hist_dickens = file_process_dickens('Books/A Tale of Two Cities.txt', skip_header = True)
-    hist_2books = hist_fitzgerald + hist_dickens
+
     print(f"There are {total_words_fitzgerald(hist_fitzgerald)} words in 'The Great Gatsby' by F.Scott Fitzgerald.")
     print(f"There are {total_words_dickens(hist_dickens)} words in 'A Tale of Two Cities' by Charles Dickens.")
-    print(f"The number of different words from the two books are {different_words(hist_fitzgerald, hist_dickens, hist_2books)}")
-
 
 if __name__ == '__main__':
     main()
