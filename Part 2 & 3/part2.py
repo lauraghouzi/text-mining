@@ -42,7 +42,7 @@ def file_process_fitzgerald(filename, skip_header):
 
 def file_process_dickens(filename, skip_header):
     """
-    Histogram contains all the words in the Great Gatsby.
+    Histogram contains all the words in A Tale of Two Cities.
     filename is a string.
     header: boolean, skips the header of the book
     """

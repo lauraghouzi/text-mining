@@ -1,11 +1,77 @@
-***Project Overview***
+**PART 3 OF ASSIGNMENT 2**
+
+*Project Overview*
 
 I decided to use Project Gutenberg as my data source for this project. I 
-chose two different books for my analysis: The Great Gatsby by F. Scott 
-Fitzgerald and A Tale of Two Cities by Charles Dickens. What I wanted to 
+chose two different books for my analysis: *The Great Gatsby* by F. Scott 
+Fitzgerald and *A Tale of Two Cities* by Charles Dickens. What I wanted to 
 do for this project is to take two very famous books (which happen to be 
 my favorite ones) and see the word frequencies, the differences between 
 the most used words and the major differences between these two books from
-different eras. I used mulitple types of data for this project such as tuples,
-dictionnaries, boolean, strings and lists. All of these helped me through out
-the project
+different eras. I used mulitple types of data for this project such as 
+tuples, dictionnaries, boolean, strings and lists. I also learned how to 
+use the fuzz fuction which was very interesting to use for this project 
+as I was comparing two different books from different eras. All of these 
+helped me through out the project to see the differences in words that 
+100 years in Litterature can do.
+
+*Implementation*
+
+First of all, I decided to use two different texts for my project: *The Great 
+Gatsby* by F. Scott Fitzgerald and *A Tale of Two Cities* by Charles Dickens.
+I stored the text of Fitzgerald in one histogram and the text of Dickens in 
+another so it would be easier to play around with the text. On top of that, I
+deleted both top and bottom headers in order to have 100% accurate data from
+only the text.
+
+Second of all, I organized the text so it would have consistent ponctuation 
+for more accurate histogram and more precise results.I decided to analyze the
+books seperatly at first to see the number of words it had, the most frequent 
+words used, the most frequent words without pronous or preposition. Then, 
+combining them together to see the differences between the two books and see 
+the ratio of differences between the two.
+
+Third of all, during this project I had a lot of decisions to make regarding
+what type of data type and structure I should use, what type of algorithms and
+most importantly how to make it all work together so the results are efficient
+and consistent. The main decision I had to make was regarding the similarities
+between the two books, I had a lot of options to choose from in order to compare
+the two texts. I had the option to do text similarities from the fuzz and work 
+with the Levenshtein Distance, do text clustering using Metric Multi-dimensional
+Scaling or do text synthesis using Markov's method. I decided to work with the 
+fuzz and MDS because they seemed to give me the results I needed for good analysis.
+
+*Results*
+
+As I said before, for this project I decided to do text similarities and clustering,
+using the fuzz and Metric Multi-dimensional Scaling. It was interesting how much a 
+century could change the writing and the type of words the authors used while writing.
+Between the different number of words in the text, from 48,836 word from F. Scott 
+Fitzgerald and 137,512 for Charles Dickens, one can clearly see the difference of 
+details in the writing. On top of that, the ratio similarity was a little over 50%
+which once again proves the different choices of words, maybe use of simpler words 
+for Fitzgerald.
+
+An interesting method I used was text clustering and learning with the machine learning 
+toolkit scikit-learn how to apply MDS to the data I had. I had never done it before so
+I had a hard time trying to analyze the data I found. However, after figuring it out, I
+realized it was an awesome way to look at the data I had. The results were ...
+You can look at the visualization in the code by running lines ...
+
+*Reflection*
+
+This project was really fun to work on, eventhough it took a long time to figure out the
+type of data I wanted to use, these two favorite books was an obvious choice for me at the
+end of the day. The whole project went well, honestly, it was just a lot of trying and 
+figuring out what worked and what did not. The hardest parts were trying to use  the fuzz
+and the MDS technique to my data because of what I had to install and learn in only a couple
+of days, however, it ended up being very fun to learn. Honestly, I did not have a plan when
+I started my project, it was more of a "test and like" type of choice. I learned so much 
+during the project, I think it will help me a lot in the future when I need to analyze data 
+and compare different data set. I think this is an important skill to learn when learning
+coding because in the Business world, a lot revolved around data, working with data sets and
+visualising them. I do not like starting projects with a lot of knowledge, especially in coding
+because that is where all of the fun is. You learn from your mistakes, those are the best lessons
+because they are made by you so they will never be done again.
+
+
