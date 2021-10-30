@@ -4,7 +4,6 @@ import sys
 from unicodedata import category
 from thefuzz import fuzz
 from thefuzz import process
-from Levenshtein import *
 
 def file_process_fitzgerald(filename, skip_header):
     """
