@@ -2,7 +2,7 @@
  
 ## Introduction
 
-In this project you will learn how to use computational techniques to analyze text. Specifically, you will access text from the web and social media (such as Twitter), run some sort of computational analysis on it, and create some sort of deliverable (either some interesting results from a text analysis, a visualization of some kind, or perhaps a computer program that manipulates language in some interesting way). ~~You will be working with a partner on this assignment.~~ This assignment is an **individual** project.
+In this project you will learn how to use computational techniques to analyze text. Specifically, you will access text from the web and social media (such as Twitter), run some sort of computational analysis on it, and create some sort of deliverable (either some interesting results from a text analysis, a visualization of some kind, or perhaps a computer program that manipulates language in some interesting way). This assignment is an **individual** project.
 
 **Skills Emphasized**:
 
