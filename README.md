@@ -1,4 +1,4 @@
-Part 3 : Assignement #2
+**Part 3 : Assignement #2**
 
 ***Project Overview***
 
