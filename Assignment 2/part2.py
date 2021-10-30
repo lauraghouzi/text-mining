@@ -96,11 +96,10 @@ def total_words_dickens(hist_dickens):
     return sum(hist_dickens.values())
 
 def different_words(hist_fitzgerald, hist_dickens):
-    print(f"This is the simple ration {fuzz.ratio(hist_fitzgerald, hist_dickens)}")   
-    print(f"This is the simple ration {fuzz.partial_ratio(hist_fitzgerald, hist_dickens)}")
-    print(f"This is the simple ration {fuzz.token_sort_ratio(hist_fitzgerald, hist_dickens)}")
-
-    
+    fuzz.ratio(hist_fitzgerald, hist_dickens) 
+    fuzz.partial_ratio(hist_fitzgerald, hist_dickens)
+    fuzz.token_sort_ratio(hist_fitzgerald, hist_dickens)
+    return (f"{fuzz.ratio}{fuzz.partial_ratio}{fuzz.token_sort_ratio}")
 
 def main():
     hist_fitzgerald = file_process_fitzgerald('Books/The Great Gatsby.txt', skip_header = True)
@@ -108,6 +107,7 @@ def main():
 
     print(f"There are {total_words_fitzgerald(hist_fitzgerald)} words in 'The Great Gatsby' by F.Scott Fitzgerald.")
     print(f"There are {total_words_dickens(hist_dickens)} words in 'A Tale of Two Cities' by Charles Dickens.")
+    print(f"These are the different ratios: {different_words(hist_fitzgerald, hist_dickens)}.")
 
 if __name__ == '__main__':
     main()
