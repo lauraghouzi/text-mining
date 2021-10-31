@@ -1,6 +1,4 @@
 import random
-import ast
-import json
 import sys
 from unicodedata import category
 from thefuzz import fuzz
@@ -96,22 +94,23 @@ def total_words_dickens(hist_dickens):
     """
     return sum(hist_dickens.values())
 
-# def ratio_difference(hist_fitzgerald, hist_dickens):
-#     """
-#     Difference between the texts in ratios, I used partial ratio to note consider the punctuations.
-#     """
-#     fuzz.partial_ratio(hist_fitzgerald, hist_dickens) 
-#     return ratio_difference(hist_fitzgerald, hist_dickens)
+def ratio_difference(hist_fitzgerald, hist_dickens):
+    """
+    Difference between the texts in ratios, I used partial ratio to note consider the punctuations.
+    """
+    fuzz.partial_ratio(hist_fitzgerald, hist_dickens) 
+    return ratio_difference(hist_fitzgerald, hist_dickens)
 
-# def ratio_precise(hist_fitzgerald, hist_dickens):
-#     """
-#     Difference between the texts in ratios, the most precised ratio to get the most accurate data.
-#     """
-#     fuzz.token_sort_ratio(hist_fitzgerald, hist_dickens)
-#     return ratio_precise(hist_fitzgerald, hist_dickens)
+def ratio_precise(hist_fitzgerald, hist_dickens):
+    """
+    Difference between the texts in ratios, the most precised ratio to get the most accurate data.
+    """
+    fuzz.token_sort_ratio(hist_fitzgerald, hist_dickens)
+    return ratio_precise(hist_fitzgerald, hist_dickens)
 
 def most_common_d(hist_dickens, excluding_stopwords=True):
-    """Makes a list of word-freq pairs(tuples) in descending order of frequency.
+    """
+    Makes a list of word-freq pairs(tuples) in descending order of frequency.
     hist: map from word to frequency
     excluding_stopwords: a boolean value. If it is True, do not include any stopwords in the list.
     returns: list of (frequency, word) pairs
@@ -135,7 +134,8 @@ def most_common_d(hist_dickens, excluding_stopwords=True):
 
 
 def print_most_common_d(hist_dickens, num=10):
-    """Prints the most commons words in a histgram and their frequencies.
+    """
+    Prints the most commons words in a histgram and their frequencies.
     hist: histogram (map from word to frequency)
     num: number of words to print
     """
@@ -146,7 +146,8 @@ def print_most_common_d(hist_dickens, num=10):
 
 
 def most_common_f(hist_fitzgerald, excluding_stopwords=True):
-    """Makes a list of word-freq pairs(tuples) in descending order of frequency.
+    """
+    Makes a list of word-freq pairs(tuples) in descending order of frequency.
     hist: map from word to frequency
     excluding_stopwords: a boolean value. If it is True, do not include any stopwords in the list.
     returns: list of (frequency, word) pairs
@@ -170,7 +171,8 @@ def most_common_f(hist_fitzgerald, excluding_stopwords=True):
 
 
 def print_most_common_f(hist_fitzgerald, num=10):
-    """Prints the most commons words in a histgram and their frequencies.
+    """
+    Prints the most commons words in a histgram and their frequencies.
     hist: histogram (map from word to frequency)
     num: number of words to print
     """
@@ -181,7 +183,8 @@ def print_most_common_f(hist_fitzgerald, num=10):
 
 
 def random_word_dickens(hist_dickens):
-    """Chooses a random word from a histogram Dickens.
+    """
+    Chooses a random word from a histogram Dickens.
     The probability of each word is proportional to its frequency.
     """
     t = []
@@ -192,7 +195,8 @@ def random_word_dickens(hist_dickens):
 
 
 def random_word_fitzgerald(hist_fitzgerald):
-    """Chooses a random word from a histogram Fitzgerald.
+    """
+    Chooses a random word from a histogram Fitzgerald.
     The probability of each word is proportional to its frequency.
     """
     t = []
@@ -201,20 +205,24 @@ def random_word_fitzgerald(hist_fitzgerald):
 
     return random.choice(t)
 
-# def emotions_dickens(hist_dickens):
-#     hist_dickens = {}
-#     str(hist_dickens)
-#     ast.literal_eval(str(hist_dickens))
-#     score = SentimentIntensityAnalyzer().polarity_scores(ast.literal_eval(str(hist_dickens)))
-#     return score
+def sentiment_dickens(hist_dickens):
+    """
+    Convert the dictionary into a string in order to check the emotion analysis.
+    Calculate the Sentiment Intensity Analyzer
+    """
+    string_d = str(hist_dickens)
+    score = SentimentIntensityAnalyzer().polarity_scores(string_d)
+    return score
     
 
-# def emotions_fitzgerald(hist_dickens):
-#     hist_fitzgerald = {}
-#     str(hist_fitzgerald)
-#     ast.literal_eval(str(hist_fitzgerald))
-#     score = SentimentIntensityAnalyzer().polarity_scores(ast.literal_eval(str(hist_fitzgerald)))
-#     return score
+def sentiment_fitzgerald(hist_fitzgerald):
+    """
+    Convert the dictionary into a string in order to check the emotion analysis.
+    Calculate the Sentiment Intensity Analyzer
+    """
+    string_f = str(hist_fitzgerald)
+    score = SentimentIntensityAnalyzer().polarity_scores(string_f)
+    return score
     
 
 
@@ -225,9 +233,8 @@ def main():
     print(f"There are {total_words_fitzgerald(hist_fitzgerald)} words in 'The Great Gatsby' by F.Scott Fitzgerald.")
     print(f"There are {total_words_dickens(hist_dickens)} words in 'A Tale of Two Cities' by Charles Dickens.")
 
-    
-    # print(f"\nThere is a {ratio_difference(hist_fitzgerald, hist_dickens)} ratio difference in between the two books.")
-    # print(f"There is a {ratio_precise(hist_fitzgerald, hist_dickens)} ratio difference in between the two books, this is a more precise number.")
+    print(f"\nThere is a {ratio_difference(hist_fitzgerald, hist_dickens)} ratio difference in between the two books.")
+    print(f"There is a {ratio_precise(hist_fitzgerald, hist_dickens)} ratio difference in between the two books, this is a more precise number.")
 
     d = most_common_d(hist_dickens, False)
     print_most_common_d(hist_dickens, 20)
@@ -242,13 +249,10 @@ def main():
     print("\n\nHere are some random words from the 'A Tale of Two Cities':")
     for i in range(100):
         print(random_word_dickens(hist_dickens), end=' ')
-
-    str(hist_dickens)
-    ast.literal_eval(str(hist_fitzgerald))
-    print(type(hist_dickens))
     
-    # print(f"\nHere are the results for the sentiment analysis for 'The Great Gatsby':{emotions_dickens(hist_dickens)} ")
-    # print(f"\nHere are the results for the sentiment analysis for 'A Tale of Two Cities':{emotions_fitzgerald(hist_fitzgerald)}")
+    print(f"\n\nHere are the results for the sentiment intensity analysis for 'The Great Gatsby': \n{sentiment_dickens(hist_dickens)}")
+    print(f"\nHere are the results for the sentiment intensity analysis for 'A Tale of Two Cities': \n{sentiment_fitzgerald(hist_fitzgerald)}")
+
 
 
 if __name__ == '__main__':

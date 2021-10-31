@@ -57,8 +57,15 @@ different choices of words, maybe use of simpler words for Fitzgerald.
 An interesting method I used was text clustering and doing Natural Language 
 Processing to the data I had. I had never done it before so I had a hard time 
 trying to analyze the data I found. However, after figuring it out, I realized 
-it was an awesome way to look at the data I had. The results were ...
-You can look at the visualization in the code by running lines ...
+it was an awesome way to look at the data I had. You can look at the visualization 
+in the code by running the function in lines 209 and 2019 and then running the 
+main function. The results for the sentiment intensity analysis for *The Great 
+Gatsby* and for  *A Tale of Two Cities* are approximately the same for negative
+at 0.001 and 0.0, for neutral approximately the same also at 0.999 and 1.0 and 
+for positive the same at 0.0. However, coumpond as a different result of -0.926
+for *The Great Gatsby* and 0.6369 for *A Tale of Two Cities*. Both of these books 
+are classics and loved by the public, however, based on this sentiment analysis 
+*A Tale of Two Cities* has more positive reviews than *The Great Gatsby*.
 
 *Reflection*
 
