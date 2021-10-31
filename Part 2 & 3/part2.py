@@ -1,5 +1,6 @@
 import random
-import string
+import ast
+import json
 import sys
 from unicodedata import category
 from thefuzz import fuzz
@@ -200,15 +201,21 @@ def random_word_fitzgerald(hist_fitzgerald):
 
     return random.choice(t)
 
-def emotions_dickens():
-    sentence = 'Software Design is my favorite class because learning Python is so cool!'
-    score = SentimentIntensityAnalyzer().polarity_scores(sentence)
-    return emotions_dickens(score)
+# def emotions_dickens(hist_dickens):
+#     hist_dickens = {}
+#     str(hist_dickens)
+#     ast.literal_eval(str(hist_dickens))
+#     score = SentimentIntensityAnalyzer().polarity_scores(ast.literal_eval(str(hist_dickens)))
+#     return score
+    
 
-def emotions_fitzgerald():
-    sentence = 'Software Design is my favorite class because learning Python is so cool!'
-    score = SentimentIntensityAnalyzer().polarity_scores(sentence)
-    return emotions_fitzgerald(score)
+# def emotions_fitzgerald(hist_dickens):
+#     hist_fitzgerald = {}
+#     str(hist_fitzgerald)
+#     ast.literal_eval(str(hist_fitzgerald))
+#     score = SentimentIntensityAnalyzer().polarity_scores(ast.literal_eval(str(hist_fitzgerald)))
+#     return score
+    
 
 
 def main():
@@ -235,9 +242,13 @@ def main():
     print("\n\nHere are some random words from the 'A Tale of Two Cities':")
     for i in range(100):
         print(random_word_dickens(hist_dickens), end=' ')
+
+    str(hist_dickens)
+    ast.literal_eval(str(hist_fitzgerald))
+    print(type(hist_dickens))
     
-    print(f"\nHere are the results for the sentiment analysis for 'The Great Gatsby':{emotions_dickens()} ")
-    print(f"\nHere are the results for the sentiment analysis for 'A Tale of Two Cities':{emotions_fitzgerald()}")
+    # print(f"\nHere are the results for the sentiment analysis for 'The Great Gatsby':{emotions_dickens(hist_dickens)} ")
+    # print(f"\nHere are the results for the sentiment analysis for 'A Tale of Two Cities':{emotions_fitzgerald(hist_fitzgerald)}")
 
 
 if __name__ == '__main__':
