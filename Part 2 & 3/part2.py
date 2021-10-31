@@ -94,19 +94,6 @@ def total_words_dickens(hist_dickens):
     """
     return sum(hist_dickens.values())
 
-def ratio_difference(hist_fitzgerald, hist_dickens):
-    """
-    Difference between the texts in ratios, I used partial ratio to note consider the punctuations.
-    """
-    fuzz.partial_ratio(hist_fitzgerald, hist_dickens) 
-    return ratio_difference(hist_fitzgerald, hist_dickens)
-
-def ratio_precise(hist_fitzgerald, hist_dickens):
-    """
-    Difference between the texts in ratios, the most precised ratio to get the most accurate data.
-    """
-    fuzz.token_sort_ratio(hist_fitzgerald, hist_dickens)
-    return ratio_precise(hist_fitzgerald, hist_dickens)
 
 def most_common_d(hist_dickens, excluding_stopwords=True):
     """
@@ -223,8 +210,23 @@ def sentiment_fitzgerald(hist_fitzgerald):
     string_f = str(hist_fitzgerald)
     score = SentimentIntensityAnalyzer().polarity_scores(string_f)
     return score
-    
 
+
+def ratio_difference(hist_fitzgerald, hist_dickens):
+    """
+    Difference between the texts in ratios, I used partial ratio to note consider the punctuations.
+    """
+    fuzz.partial_ratio(hist_fitzgerald, hist_dickens) 
+    return ratio_difference(hist_fitzgerald, hist_dickens)
+
+
+def ratio_precise(hist_fitzgerald, hist_dickens):
+    """
+    Difference between the texts in ratios, the most precised ratio to get the most accurate data.
+    """
+    fuzz.token_sort_ratio(hist_fitzgerald, hist_dickens)
+    return ratio_precise(hist_fitzgerald, hist_dickens)
+    
 
 def main():
     hist_fitzgerald = file_process_fitzgerald('Books/The Great Gatsby.txt', skip_header = True)
@@ -232,9 +234,6 @@ def main():
 
     print(f"There are {total_words_fitzgerald(hist_fitzgerald)} words in 'The Great Gatsby' by F.Scott Fitzgerald.")
     print(f"There are {total_words_dickens(hist_dickens)} words in 'A Tale of Two Cities' by Charles Dickens.")
-
-    print(f"\nThere is a {ratio_difference(hist_fitzgerald, hist_dickens)} ratio difference in between the two books.")
-    print(f"There is a {ratio_precise(hist_fitzgerald, hist_dickens)} ratio difference in between the two books, this is a more precise number.")
 
     d = most_common_d(hist_dickens, False)
     print_most_common_d(hist_dickens, 20)
@@ -252,6 +251,10 @@ def main():
     
     print(f"\n\nHere are the results for the sentiment intensity analysis for 'The Great Gatsby': \n{sentiment_dickens(hist_dickens)}")
     print(f"\nHere are the results for the sentiment intensity analysis for 'A Tale of Two Cities': \n{sentiment_fitzgerald(hist_fitzgerald)}")
+
+    print(f"\nThere is a {ratio_difference(hist_fitzgerald, hist_dickens)} ratio difference in between the two books.")
+    print(f"There is a {ratio_precise(hist_fitzgerald, hist_dickens)} ratio difference in between the two books, this is a more precise number.")
+
 
 
 
