@@ -200,12 +200,12 @@ def random_word_fitzgerald(hist_fitzgerald):
 
     return random.choice(t)
 
-def emotions_dickens(score):
+def emotions_dickens():
     sentence = 'Software Design is my favorite class because learning Python is so cool!'
     score = SentimentIntensityAnalyzer().polarity_scores(sentence)
     return emotions_dickens(score)
 
-def emotions_fitzgerald(score):
+def emotions_fitzgerald():
     sentence = 'Software Design is my favorite class because learning Python is so cool!'
     score = SentimentIntensityAnalyzer().polarity_scores(sentence)
     return emotions_fitzgerald(score)
